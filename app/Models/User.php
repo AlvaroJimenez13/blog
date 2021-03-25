@@ -58,4 +58,15 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function profile(){
+        // Para recuperar el registro manualmente
+
+        //$profile = Profile::where("user_id",$this->id)->first();
+
+        // si he cambiado el campo id, hay un segundo parametro para hasOne("App\Models\Profile","nombre_campo","nombre_campo_primaryKey
+        //Relacion 1 a 1
+        //Ej:$this->hasOne("App\Models\Profile","user_id","id");
+        return $this->hasOne("App\Models\Profile");
+    }
 }
