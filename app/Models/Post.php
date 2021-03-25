@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    //Relacion 1 a muchos (inversa)
+    public function user(){
+        return $this->belongsTo("App\Models\User");
+    }
+    public function categoria(){
+        return $this->belongsTo("App\Models\Categoria");
+    }
 }

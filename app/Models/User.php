@@ -69,4 +69,17 @@ class User extends Authenticatable
         //Ej:$this->hasOne("App\Models\Profile","user_id","id");
         return $this->hasOne("App\Models\Profile");
     }
+
+    public function posts(){
+        // Relacion de 1 a M en Eloquent
+        return $this->hasMany("App\Models\Post");
+    }
+    public function videos(){
+        // Relacion de 1 a M en Eloquent
+        return $this->hasMany("App\Models\Video");
+    }
+    //relacion muchos a muchos
+    public function roles(){
+        return $this->belongsToMany("App\Models\Role");
+    }
 }
