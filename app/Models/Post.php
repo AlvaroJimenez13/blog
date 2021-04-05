@@ -19,4 +19,12 @@ class Post extends Model
     public function image(){
         return $this->morphOne("App/Models/Image","imagiable");
     }
+    // Relacion 1 a N polimorfica
+    public function comments(){
+        return $this->morphMany("App\Models\Comment","commentable");
+    }
+
+    public function posts(){
+        return $this->morphToMany("App\Models\Tag");
+    }
 }
